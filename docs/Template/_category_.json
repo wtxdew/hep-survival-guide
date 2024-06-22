@@ -1,0 +1,12 @@
+{
+  "position": 5,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Some Template"
+  },
+  "customProps": {
+    "description": "Template category"
+  }
+}
