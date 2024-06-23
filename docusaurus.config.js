@@ -18,7 +18,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "ntu-hsg", // Usually your GitHub org/user name.
+  organizationName: "wtxdew", // Usually your GitHub org/user name.
   projectName: "hep-guide", // Usually your repo name.
   deploymentBranch: "pages",
 
