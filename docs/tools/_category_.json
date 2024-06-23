@@ -1,0 +1,13 @@
+{
+    "label": "Tools and resources",
+  "position": 5,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Tools and resources for working"
+  },
+  "customProps": {
+    "description": "Template category"
+  }
+}

@@ -1,0 +1,13 @@
+{
+    "label": "Troubleshooting",
+  "position": 10,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Troubleshooting",
+  },
+  "customProps": {
+    "description": "Template category"
+  }
+}

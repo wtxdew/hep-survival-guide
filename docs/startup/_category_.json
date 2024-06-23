@@ -1,0 +1,13 @@
+{
+  "label": "Startup",
+  "position": 3,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Startup for each platform",
+  },
+  "customProps": {
+    "description": "Startup site"
+  }
+}

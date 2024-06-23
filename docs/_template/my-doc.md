@@ -6,7 +6,7 @@ description: My document description
 
 ## Links
 
-Markdown text with [links](/intro.md)
+Markdown text with [links](/index.md)
 
 ![Docusaurus logo](/img/docusaurus.png)
 

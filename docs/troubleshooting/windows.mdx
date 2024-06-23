@@ -1,0 +1,43 @@
+---
+id: troubleshooting-windows
+title: Windows Issue
+---
+
+This page lists common issues that Windows users may encounter and provides solutions.
+
+## WSL: X11 not working.
+### ERROR: `Can't open display`
+**Solution:** `export ****DISPLAY=:0`
+### (Win10) X-windows not working
+**ERROR**: `Authorization required, but no authorization protocol specified`
+
+#### Solution
+1. Install VcxSrv
+    1. Execute with option “-ac” in "Additional Parameters for VcxSrv" textbox.
+    ![](./xwin.png)
+    2. You can save the configuration to prevent typing parameter everytime.
+2. Set environment variables
+
+    ```sh title="~/.bashrc"
+    #!/usr/bin/env sh
+    export DISPLAY=$(grep nameserver /etc/resolv.conf | sed ’s/nameserver //‘):0
+    export LIBGL_ALWAYS_INDIRECT=1
+    ```
+
+    :::note 
+    The output of $(grep …) is the IP address addressing to x-window. THIS ADDRESS CHANGED AFTER REBOOT. So NEVER record the output address to .bashrc. Instead, use this command to update IP address everytime.
+    :::
+
+## VSCode
+
+### Cannot SSH to the remote server due to glibc \< 2.28.
+
+#### Description
+After the VSCode 1.86 update, remote host Linux systems with glibc < 2.28 are no longer supported.
+
+#### Solution
+- To deal with this problem you need to downgrade the VSCode:  [[Win](https://update.code.visualstudio.com/1.85.2/win32-x64-user/stable)] [[Mac](https://update.code.visualstudio.com/1.85.2/darwin-universal/stable)]
+
+    [vscode v1.85](https://code.visualstudio.com/updates/v1_85)
+    
+- You also need to switch the Extension “**Remote - SSH”** to the pre-release Version.

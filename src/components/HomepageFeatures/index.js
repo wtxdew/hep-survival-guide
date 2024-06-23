@@ -10,7 +10,8 @@ const FeatureList = [
     description: (
       <>
         The High Energy Physics (HEP) work demands intensive computer and coding
-        tasks. This guide is designed to help you survive the computer jungle.
+        tasks. This guide is aimed to help you successfully survive from your
+        HEP lifetime.
       </>
     ),
     link: "/docs",

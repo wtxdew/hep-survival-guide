@@ -1,0 +1,201 @@
+---
+id: ssh-setup
+title: SSH Setup
+description: How to setup SSH keys for secure access to your servers
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## SSH-Key
+
+Github provides a detailed guideline for SSH key. You can refer to this [site](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+Or you can also follow the simple steps below.
+### Generate a new SSH key
+Paste the following command in your terminal to generate a new SSH key pair.
+Replace the email with your own email address.
+
+```bash
+# For usual server
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+# some legacy system (HEP1) only accepts RSA keys.
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+### Adding your SSH key to the ssh-agent
+
+Start the ssh-agent in the background.
+Depending on your shell, you may need to use different commands.
+
+<Tabs>
+<TabItem value="bash">
+For bash shell
+
+```bash
+eval "$(ssh-agent -s)"
+```
+</TabItem>
+<TabItem value="csh/fish">
+
+For csh/fish shell
+```bash
+eval (ssh-agent -c)
+```
+</TabItem>
+</Tabs>
+
+Then add your SSH private key to the ssh-agent.
+
+<Tabs>
+<TabItem value="Mac">
+
+1. Modify `$HOME/.ssh/config` file to load ssh key into ssh-agent automatically
+```bash title="~/.ssh/config"
+Host github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+```
+
+2. Add your SSH private key to the ssh-agent and store your passphrase in the keychain.
+```bash
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+```
+</TabItem>
+<TabItem value="Linux">
+
+1. Add the ssh-key to ssh-agent
+
+    ```bash
+    ssh-add ~/.ssh/id_ed25519
+    ```
+
+    You can check all the keys you add to the ssh-agent by `ssh-add -l`.
+
+2. Add the following to your `~/.bashrc`. 
+This will automatically start the agent and ensure that only one `ssh-agent` process is running at a time.
+
+    ```bash title="~/.bashrc"
+    #!/bin/bash
+
+    if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+        ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+    fi
+    if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
+        source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+    fi
+    ```
+
+3. Use `Keychain` to manage your keys, allowing you to avoid entering your password in each session.
+   **install** `Keychain`. Then, add the following command to your `.bashrc` file to configure Keychain.
+
+    ```bash
+    #!/bin/bash
+    eval $(keychain --eval --quiet id_ed25519 id_rsa ~/.keys/my_custom_key)
+    ```
+
+</TabItem>
+</Tabs>
+
+### Copy your public key pair to the server
+<Tabs>
+<TabItem value="By command">
+Use command `ssh-copy-id` to copy your public key to the server.
+
+```bash
+ssh-copy-id -i your_key_path username@server_host
+```
+</TabItem>
+<TabItem value="Manually">
+
+manually copy the public key to the server.
+1. Copy the contents of file `$HOME/.ssh/your_key_path.pub`
+2. Access the server and paste the contents into the `$HOME/.ssh/authorized_keys` file.
+</TabItem>
+</Tabs>
+
+
+## SSH Configuration
+The ssh configuration file is used to save the SSH setting for each server.
+This can save you time and make your workflow more efficient. 
+
+The SSH configuration file is located at **`$HOME/.ssh/config`** on Unix-like systems or **`c:\User\username\.ssh\config`** on Windows.
+Here is an example configuration:
+
+```sh title="~/.ssh/config"
+Host <server_name>
+  User <user_name>
+  HostName <host_name>
+  ForwardX11Trusted yes
+  ForwardX11 yes
+  UseKeychain yes # MacOS only
+  AddKeysToAgent yes
+  ForwardAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+  LocalForward 8939 localhost:8939 # optional
+```
+Replace the placeholder in `<...>` with your information.
+Then you can connect to this server by running **`ssh <server_name>`**.
+
+:::danger
+**NEVER** put your password in the configuration.
+:::
+
+### Legacy system
+For connecting to the legacy system server (e.g. hep1), which requires RSA keys, you need to add specific flags to the configuration:
+
+```sh title="~/.ssh/config"
+Host hep1
+   // highlight-start
+  HostKeyAlgorithms=+ssh-rsa
+  PubkeyAcceptedKeyTypes=+ssh-rsa
+  PubkeyAcceptedAlgorithms=+ssh-rsa
+  // highlight-end
+  User <user_name> 
+  HostName hep1.phys.ntu.edu.tw
+  ForwardX11Trusted yes
+  ForwardX11 yes
+  AddKeysToAgent yes
+  UseKeychain yes # MacOS only
+  ForwardAgent yes
+  IdentityFile ~/.ssh/id_rsa_hep1
+```
+
+### Jump host
+
+Some servers cannot be directly connected to and require you to connect through a jump host (e.g., 'kekcc' and 'sshcc').
+However, you can easily use a one-line command to jump to your target server.
+
+```mermaid
+graph LR;
+    local --> sshcc --> kekcc;
+```
+
+Here is an example configuration:
+```sh title="~/.ssh/config"
+Host kekcc
+  User Username
+  HostName ccx04.cc.kek.jp
+  ForwardX11Trusted yes
+  ForwardX11 yes
+  UseKeychain yes # MacOS only
+  AddKeysToAgent yes
+  ForwardAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+  // highlight-next-line
+  ProxyCommand ssh -q -W %h:%p sshcc
+
+Host sshcc
+  User Username
+  HostName sshcc1.kek.jp
+  ForwardX11Trusted yes
+  ForwardX11 yes
+  AddKeysToAgent yes
+  UseKeychain yes # MacOS only
+  ForwardAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+```
+Then you can connect to 'kekcc' by running **`ssh kekcc`**.
+
+## [SSH login w/o password](/docs/advanced/ssh-login-wo-password){#ssh-login-wo-password}

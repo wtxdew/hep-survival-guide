@@ -1,0 +1,83 @@
+---
+id: cern-root
+title: CERN ROOT
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Jack's **lecture notes**
+This is a lecture note from Jack which contains the ROOT tutorial:
+[Computational Methods in Experimental Particle Physics](https://hep1.phys.ntu.edu.tw/~kfjack/lecture/hepcomp/2016/)
+
+These three lectures are specialized ROOT tutorials.
+- [Lecture03: Basic Visualization with ROOT](http://hep1.phys.ntu.edu.tw/~kfjack/lecture/hepcomp/2016/03/lecture-03.pdf)
+- [Lecture08: Root Finding and Minimum Finding](http://hep1.phys.ntu.edu.tw/~kfjack/lecture/hepcomp/2016/08/lecture-08.pdf)
+- [Lecture09: Access to ROOT data format](http://hep1.phys.ntu.edu.tw/~kfjack/lecture/hepcomp/2016/09/lecture-09.pdf)
+
+
+## Installation
+
+You can install ROOT from **package**, **pre-built binary** or *build from source*.
+
+### Install from package
+Packages are listed below. (You can also [build from source](https://github.com/neovim/neovim/wiki/Installing-Neovim#install-from-source).)
+
+<Tabs>
+<TabItem value="MacOS">
+
+**[Homebrew](https://brew.sh/)**
+
+```sh
+$ brew install root
+```
+
+[**MacPorts**](https://www.macports.org/)
+
+```sh
+$ sudo port install root6
+```
+
+</TabItem>
+<TabItem value="Linux">
+#### CentOS
+ROOT is available on CentOS via [EPEL](https://fedoraproject.org/wiki/EPEL). To install ROOT on CentOS, run the following commands.
+
+```sh
+$ yum install epel-release
+$ yum install root
+```
+
+#### Arch Linux
+Arch’s [ROOT package](https://www.archlinux.org/packages/community/x86_64/root) can be installed with the following command.
+The Arch package uses C++17.
+```bash
+pacman -Syu root
+```
+
+#### Ubuntu
+Use conda
+
+</TabItem>
+<TabItem value="Conda">
+For any Linux distribution and MacOS, ROOT is available as a [conda package](https://anaconda.org/conda-forge/root/). To create a new conda environment containing ROOT and activate it, execute the following commands.
+```sh
+$ conda config --set channel_priority strict
+$ conda create -c conda-forge --name <my-environment> root
+$ conda activate <my-environment>
+```
+</TabItem>
+</Tabs>
+
+### Install from pre-built binary
+
+Find the [Release](https://root.cern/install/all_releases/) for your OS and ROOT version. Get the correlated file name `root_<version>.tar.gz`, then run the following commands.
+```sh
+$ wget https://root.cern/download/root_<version>.tar.gz
+$ tar -xzvf root_<version>.tar.gz
+$ source root/bin/thisroot.sh
+```
+
+### Install form source code
+
+Please following the official document: [Installing ROOT](https://root.cern/install/#build-from-source)

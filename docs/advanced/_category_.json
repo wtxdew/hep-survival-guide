@@ -1,12 +1,13 @@
 {
-  "position": 5,
+    "label": "Advanced Setting",
+  "position": 6,
   "collapsible": true,
   "collapsed": true,
   "link": {
     "type": "generated-index",
-    "description": "Some Template"
+    "description": "Advanced Setting"
   },
   "customProps": {
-    "description": "Template category"
+    "description": ""
   }
 }
