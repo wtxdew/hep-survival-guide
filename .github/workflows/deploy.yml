@@ -20,7 +20,7 @@ jobs:
           node-version: 18
           cache: npm
 
-      - uses: webfactory/ssh-agent@v0.5.0
+      - uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.HEP_KEY }}
 
@@ -54,6 +54,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.HEP_HOST }}
           REMOTE_USER: ${{ secrets.HEP_USER }}
           TARGET: ${{ secrets.HEP_TARGET }}
+          SSH_CMD_ARGS: "-o HostKeyAlgorithms=+ssh-rsa"
           SCRIPT_BEFORE: |
             whoami
             ls -al
