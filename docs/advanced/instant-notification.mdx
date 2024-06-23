@@ -1,0 +1,30 @@
+---
+id: instant-notification
+title: Instant Notification
+---
+
+When you submit some jobs on the server, maybe you have some problem with don’t know when the jobs all finish. Maybe you try to check the progress of the submission once and once manually. If you are, you need a instant notification app. 
+
+## *Bark*
+
+https://github.com/Finb/Bark
+
+[**Bark**](https://github.com/Finb/Bark) is a fully open source iOS APP for receiving custom push notifications.
+
+### Usage
+
+- Install this app from *App Store*, you will get a website with a token in the app.
+
+```html
+https://api.day.app/<your_token>/<BodyText>
+```
+
+- Replace <your_token> with the token you get from the app.
+- Replace the <BodyText> to any contents you want to receive in the notification.
+- Access this site after modified. In the terminal, you can use `curl` command.
+
+```sh
+$ curl https://api.day.app/<your_token>/All_jobs_are_finish
+```
+
+You will then receive a notification on your device.
