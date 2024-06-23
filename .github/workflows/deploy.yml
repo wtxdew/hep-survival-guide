@@ -22,7 +22,7 @@ jobs:
 
       - uses: webfactory/ssh-agent@v0.5.0
         with:
-          ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
+          ssh-private-key: ${{ secrets.HEP_KEY }}
 
       - name: Deploy website
         env:
