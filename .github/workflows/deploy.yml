@@ -46,19 +46,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@main
+      - name: Set up SSH key
+        uses: webfactory/ssh-agent@v0.9.0
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.HEP_KEY }}
-          ARGS: "-rlgoDzvc -i"
-          REMOTE_HOST: ${{ secrets.HEP_HOST }}
-          REMOTE_USER: ${{ secrets.HEP_USER }}
-          TARGET: ${{ secrets.HEP_TARGET }}
-          SSH_CMD_ARGS: "-o HostKeyAlgorithms=+ssh-rsa"
-          SCRIPT_BEFORE: |
-            whoami
-            ls -al
-          SCRIPT_AFTER: |
-            whoami
-            ls -al
-            echo $RSYNC_STDOUT
+          ssh-private-key: ${{ secrets.HEP_KEY }}
+
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HEP_HOST }}
+          usernaje: ${{ secrets.HEP_USER }}
+          key: ${{ secrets.HEP_KEY }}
+          port: 22
+          script: |
+            cd ${{ secrets.HEP_TARGET}} && git pull
