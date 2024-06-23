@@ -82,12 +82,13 @@ const config = {
   ],
 
   plugins: ["@docusaurus/theme-live-codeblock"],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      mermaid: {
-        // theme: { light: "neutral", dark: "forest" },
-      },
+      // mermaid: {
+      //   // theme: { light: "neutral", dark: "forest" },
+      // },
       docs: {
         sidebar: {
           hideable: true,
@@ -151,11 +152,12 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} HEP Survival Guide`,
+        copyright: `Copyright © ${new Date().getFullYear()} HEP Survival Guide. All Rights Reserved.`,
       },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ["bash"],
       },
     }),
 };
