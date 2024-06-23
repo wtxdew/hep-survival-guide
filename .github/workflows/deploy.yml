@@ -55,7 +55,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HEP_HOST }}
-          usernaje: ${{ secrets.HEP_USER }}
+          username: ${{ secrets.HEP_USER }}
           key: ${{ secrets.HEP_KEY }}
           port: 22
           script: |
