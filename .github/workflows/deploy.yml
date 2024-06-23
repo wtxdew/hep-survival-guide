@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Build Docusaurus
+    name: Build Website
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,7 +24,7 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.HEP_KEY }}
 
-      - name: Deploy website
+      - name: build push to branch:pages
         env:
           USE_SSH: true
         run: |
@@ -37,3 +37,27 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.HEP_KEY }}
+          ARGS: "-rlgoDzvc -i"
+          REMOTE_HOST: ${{ secrets.HEP_HOST }}
+          REMOTE_USER: ${{ secrets.HEP_USER }}
+          TARGET: ${{ secrets.HEP_TARGET }}
+          SCRIPT_BEFORE: |
+            whoami
+            ls -al
+          SCRIPT_AFTER: |
+            whoami
+            ls -al
+            echo $RSYNC_STDOUT
