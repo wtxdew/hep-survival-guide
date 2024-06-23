@@ -42,7 +42,7 @@ const config = {
         docs: {
           // routeBasePath: '/',
           path: "docs",
-          editUrl: "https://github.com/wtxdew/hep-guide/edit/main/",
+          editUrl: "https://github.com/wtxdew/hep-guide/edit/master/",
           sidebarPath: "./sidebars.js",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
@@ -54,7 +54,7 @@ const config = {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/wtxdew/hep-guide/edit/main/",
+          editUrl: "https://github.com/wtxdew/hep-guide/edit/master/",
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         },
