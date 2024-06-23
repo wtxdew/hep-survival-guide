@@ -2,12 +2,11 @@
 id: example2
 title: Markdown Example
 description: My document description
-slug: /my-custom-url
 ---
 
 ## Links
 
-Markdown text with [links](./hello.md)
+Markdown text with [links](/intro.md)
 
 ![Docusaurus logo](/img/docusaurus.png)
 

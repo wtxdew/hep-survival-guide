@@ -20,6 +20,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "ntu-hsg", // Usually your GitHub org/user name.
   projectName: "hep-guide", // Usually your repo name.
+  deploymentBranch: "pages",
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -41,8 +42,7 @@ const config = {
         docs: {
           // routeBasePath: '/',
           path: "docs",
-          editUrl:
-            "https://github.com/wtxdew/hep-guide/edit/main/",
+          editUrl: "https://github.com/wtxdew/hep-guide/edit/main/",
           sidebarPath: "./sidebars.js",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
@@ -54,8 +54,7 @@ const config = {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/wtxdew/hep-guide/edit/main/",
+          editUrl: "https://github.com/wtxdew/hep-guide/edit/main/",
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         },
