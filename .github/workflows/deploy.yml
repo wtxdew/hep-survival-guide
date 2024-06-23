@@ -51,4 +51,4 @@ jobs:
         key: ${{ secrets.HEP_KEY }}
         port: 22
         script: |
-          cd /home/hep/tong/public_html/homepage && git pull origin pages
+          cd /home/hep/tong/public_html/survival && git pull origin pages
