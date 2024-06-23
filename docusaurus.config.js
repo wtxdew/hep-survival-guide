@@ -46,6 +46,8 @@ const config = {
           sidebarPath: "./sidebars.js",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
+          sidebarCollapsible: true,
+          sidebarCollapsed: false,
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           breadcrumbs: true,
