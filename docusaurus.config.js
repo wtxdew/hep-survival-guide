@@ -95,8 +95,7 @@ const config = {
           autoCollapseCategories: false,
         },
       },
-      // Replace with your project's social card
-      image: "img/sudo-rm-rf.png",
+      image: "img/social-card.png",
       liveCodeBlock: {
         playgroundPosition: "bottom",
       },
