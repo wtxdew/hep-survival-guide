@@ -14,7 +14,7 @@ const config = {
   tagline: "HEP is an adventure that is best navigated thoughtfully.",
   favicon: "img/favicon.ico",
   url: "https://hep1.phys.ntu.edu.tw",
-  baseUrl: "/",
+  baseUrl: "/~tong/survival/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
