@@ -3,27 +3,36 @@ id: troubleshooting-windows
 title: Windows Issue
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 This page lists common issues that Windows users may encounter and provides solutions.
 
 ## WSL: X11 not working.
+
+<Tabs>
+<TabItem value="Win 11">
 ### ERROR: `Can't open display`
-### Solution:
-**Case 1**: Add `export DISPLAY=:0` in `~/.bashrc`.
+#### Solution
+- **Case 1**: Add `export DISPLAY=:0` in `~/.bashrc`.
 
-**Case 2**: Update wsl as following command
+- **Case 2**: Update wsl as following command
 
-    ```sh title="power shell"
-    PS > wsl --update
-    PS > wsl --shutdown
-    ```
-    
-    then retry the x11 in sub system.
-    
-    ``` sh title="ubuntu bash"
-    $ xeyes
-    ```
-### (Win10) X-windows not working
-**ERROR**: `Authorization required, but no authorization protocol specified`
+        ```sh title="power shell"
+        PS > wsl --update
+        PS > wsl --shutdown
+        ```
+        
+        then retry the x11 in sub system.
+        
+        ``` sh title="ubuntu bash"
+        $ xeyes
+        ```
+
+</TabItem>
+<TabItem value="Win 10">
+### ERROR: X-windows not working
+`Authorization required, but no authorization protocol specified`
 
 #### Solution
 1. Install VcxSrv
@@ -41,6 +50,9 @@ This page lists common issues that Windows users may encounter and provides solu
     :::note 
     The output of $(grep …) is the IP address addressing to x-window. THIS ADDRESS CHANGED AFTER REBOOT. So NEVER record the output address to .bashrc. Instead, use this command to update IP address everytime.
     :::
+
+</TabItem>
+</Tabs>
 
 ## VSCode
 
