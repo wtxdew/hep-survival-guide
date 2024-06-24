@@ -7,7 +7,21 @@ This page lists common issues that Windows users may encounter and provides solu
 
 ## WSL: X11 not working.
 ### ERROR: `Can't open display`
-**Solution:** `export ****DISPLAY=:0`
+### Solution:
+**Case 1**: Add `export DISPLAY=:0` in `~/.bashrc`.
+
+**Case 2**: Update wsl as following command
+
+    ```sh title="power shell"
+    PS > wsl --update
+    PS > wsl --shutdown
+    ```
+    
+    then retry the x11 in sub system.
+    
+    ``` sh title="ubuntu bash"
+    $ xeyes
+    ```
 ### (Win10) X-windows not working
 **ERROR**: `Authorization required, but no authorization protocol specified`
 
