@@ -129,8 +129,12 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Survival Guide",
-                to: "/docs/",
+                label: "Computer Survival Guide",
+                to: "/docs/CSG",
+              },
+              {
+                label: "Blogs",
+                to: "/blog",
               },
             ],
           },
