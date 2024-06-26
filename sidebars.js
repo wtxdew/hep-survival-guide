@@ -20,7 +20,7 @@ const sidebars = {
     },
     {
       type: "link",
-      label: "Jack's Lecture2",
+      label: "Jack's Lectures",
       href: "https://hep1.phys.ntu.edu.tw/~kfjack/lecture/",
     },
   ],
