@@ -91,6 +91,9 @@ const config = {
       // mermaid: {
       //   // theme: { light: "neutral", dark: "forest" },
       // },
+      metadata: [
+        { name: "keywords", content: "HEP, HSG" },
+      ],
       docs: {
         sidebar: {
           hideable: true,
