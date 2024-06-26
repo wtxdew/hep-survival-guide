@@ -160,6 +160,15 @@ const config = {
         darkTheme: prismThemes.dracula,
         additionalLanguages: ["bash"],
       },
+
+      announcementBar: {
+        id: "support_us",
+        content:
+          '<b>We are calling for contributions to the <a target="_blank" href="http://localhost:3000/~tong/survival/contributing">HEP Survival Guide</a>! 🚀</b>',
+        backgroundColor: "#fafbfc",
+        textColor: "#091E42",
+        isCloseable: false,
+      },
     }),
 };
 

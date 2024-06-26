@@ -14,7 +14,7 @@ const FeatureList = [
         HEP lifetime.
       </>
     ),
-    link: "/docs",
+    link: "/docs/CSG",
   },
   {
     title: "Blogs",
@@ -25,9 +25,10 @@ const FeatureList = [
     link: "/blog",
   },
   {
-    title: "...",
+    title: "Contrubuting",
     Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: <></>,
+    link: "/contributing",
   },
 ];
 
