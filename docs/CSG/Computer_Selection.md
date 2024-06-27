@@ -31,3 +31,10 @@ export const Highlight = ({children, color}) => (
 <Highlight color="#dd1533"> Purchase a Mac! </Highlight>
 </a>
 </h1>
+
+<br />
+<h1 align="center">
+<a href="https://www.apple.com/tw-edu/shop/buy-mac/macbook-air/13-%E5%90%8B-m3">
+<Highlight color="#23B3BF"> Purchase a EDU Mac! </Highlight>
+</a>
+</h1>
