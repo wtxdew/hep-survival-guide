@@ -91,9 +91,7 @@ const config = {
       // mermaid: {
       //   // theme: { light: "neutral", dark: "forest" },
       // },
-      metadata: [
-        { name: "keywords", content: "HEP, HSG" },
-      ],
+      metadata: [{ name: "keywords", content: "HEP, HSG" }],
       docs: {
         sidebar: {
           hideable: true,
@@ -171,7 +169,7 @@ const config = {
       announcementBar: {
         id: "support_us",
         content:
-          '<b>We are calling for contributions to the <a target="_blank" href="https://hep1.phys.ntu.edu.tw/~tong/survival/contributing">HEP Survival Guide</a>! 🚀</b>',
+          '<b>We are calling for contributions to the <a target="_blank" href="/~tong/survival/contributing">HEP Survival Guide</a>! 🚀</b>',
         backgroundColor: "#fafbfc",
         textColor: "#091E42",
         isCloseable: false,
