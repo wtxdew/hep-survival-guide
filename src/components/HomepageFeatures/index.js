@@ -28,7 +28,7 @@ const FeatureList = [
     title: "Contributing",
     Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: <></>,
-    link: "/contributing",
+    link: "/community/contributing",
   },
 ];
 

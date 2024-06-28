@@ -83,7 +83,21 @@ const config = {
     },
   ],
 
-  plugins: ["@docusaurus/theme-live-codeblock"],
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'community',
+        path: 'community',
+        routeBasePath: 'community',
+        editUrl: 'https://github.com/wtxdew/hep-guide/edit/master/community/',
+        sidebarPath: './sidebarsCommunity.js',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      },
+    ],
+    "@docusaurus/theme-live-codeblock",
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -117,9 +131,31 @@ const config = {
           },
           { to: "/blog", label: "Blog", position: "left" },
           {
-            href: "https://github.com/wtxdew",
-            label: "GitHub",
-            position: "right",
+            to: '/community/contributing/',
+            label: 'Community',
+            position: 'left',
+            activeBaseRegex: `/community/`,
+          },
+          // Right
+          {
+            type: 'localeDropdown',
+            position: 'right',
+            dropdownItemsAfter: [
+              {
+                type: 'html',
+                value: '<hr style="margin: 0.3rem 0;">',
+              },
+              {
+                href: 'https://github.com/wtxdew/hep-guide/issues/001',
+                label: 'Help Us Translate',
+              },
+            ],
+          },
+          {
+            href: 'https://github.com/wtxdew/hep-guide',
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
           },
         ],
       },
@@ -169,7 +205,7 @@ const config = {
       announcementBar: {
         id: "support_us",
         content:
-          '<b>We are calling for contributions to the <a target="_blank" href="/~tong/survival/contributing">HEP Survival Guide</a>! 🚀</b>',
+          '<b>We are calling for contributions to the <a target="_blank" href="/~tong/survival/community/contributing">HEP Survival Guide</a>! 🚀</b>',
         backgroundColor: "#fafbfc",
         textColor: "#091E42",
         isCloseable: false,
