@@ -90,7 +90,7 @@ const config = {
         id: 'community',
         path: 'community',
         routeBasePath: 'community',
-        editUrl: 'https://github.com/wtxdew/hep-guide/edit/master/community/',
+        editUrl: 'https://github.com/wtxdew/hep-guide/edit/master/',
         sidebarPath: './sidebarsCommunity.js',
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,

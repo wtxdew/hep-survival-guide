@@ -1,5 +1,4 @@
 ---
-slug: welcome
 title: Welcome
 authors: [tong]
 tags: [facebook, hello, docusaurus]

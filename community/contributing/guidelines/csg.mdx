@@ -3,3 +3,28 @@ title: CSG documentation
 description: A guide for contributing to the Computer Survival Guide (CSG) section.
 ---
 
+## Site Structure
+
+Below is the structure of the HSG website
+
+``` 
+.
+├── blog                            # blog has routeBasePath: '/blog'
+│   ├── 2024-06-22-template.mdx     # -> /blog/2024/06/22/template
+│   └── 2021-08-26-welcome
+│       └── index.md                # -> /blog/2021/08/26/welcome
+├── docs                            # docs has routeBasePath: '/docs'
+│   └── CSG
+│       ├── index.md                # -> /docs/CSG
+│       ├── computer-selection.md   # -> /docs/CSG/computer-selection
+│       └── startup
+│           ├── _category_.json
+│           ├── image.png
+│           └── windows.md          # -> /docs/CSG/startup/windows
+└─── src
+    └── pages                       # pages has routeBasePath: '/'
+        ├── index.module.css
+        ├── index.js                # -> /
+        └── markdown-page.md        # -> /markdown-page
+
+```
