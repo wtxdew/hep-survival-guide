@@ -43,7 +43,7 @@ const config = {
         docs: {
           // routeBasePath: '/',
           path: "docs",
-          editUrl: "https://github.com/wtxdew/hep-guide/edit/master/",
+          editUrl: "https://github.com/wtxdew/hep-survival-guide/edit/master/",
           sidebarPath: "./sidebars.js",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
@@ -57,7 +57,7 @@ const config = {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/wtxdew/hep-guide/edit/master/",
+          editUrl: "https://github.com/wtxdew/hep-survival-guide/edit/master/",
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         },
@@ -91,7 +91,7 @@ const config = {
         id: 'community',
         path: 'community',
         routeBasePath: 'community',
-        editUrl: 'https://github.com/wtxdew/hep-guide/edit/master/',
+        editUrl: 'https://github.com/wtxdew/hep-survival-guide/edit/master/',
         sidebarPath: './sidebarsCommunity.js',
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
@@ -128,7 +128,7 @@ const config = {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "Survival Guide",
+            label: "Computer Survival Guide",
           },
           { to: "/blog", label: "Blog", position: "left" },
           {
@@ -147,13 +147,13 @@ const config = {
                 value: '<hr style="margin: 0.3rem 0;">',
               },
               {
-                href: 'https://github.com/wtxdew/hep-guide/issues/001',
+                href: 'https://github.com/wtxdew/hep-survival-guide/issues/001',
                 label: 'Help Us Translate',
               },
             ],
           },
           {
-            href: 'https://github.com/wtxdew/hep-guide',
+            href: 'https://github.com/wtxdew/hep-survival-guide',
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub repository',
