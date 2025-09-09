@@ -13,14 +13,15 @@ const config = {
   title: "HEP Survival Guide",
   tagline: "HEP is an adventure that is best navigated thoughtfully.",
   favicon: "img/favicon.ico",
-  url: "https://hep1.phys.ntu.edu.tw",
-  baseUrl: "/~tong/survival/",
+  url: "https://hsg.tongwu.cc",
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "wtxdew", // Usually your GitHub org/user name.
-  projectName: "hep-guide", // Usually your repo name.
-  deploymentBranch: "pages",
+  projectName: "hep-survival-guide", // Usually your repo name.
+  deploymentBranch: "gh-pages",
+  trailingSlash: false,
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
