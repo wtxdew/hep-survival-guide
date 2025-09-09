@@ -206,7 +206,7 @@ const config = {
       announcementBar: {
         id: "support_us",
         content:
-          '<b>We are calling for contributions to the <a target="_blank" href="/~tong/survival/community/contributing">HEP Survival Guide</a>! 🚀</b>',
+          '<b>We are calling for contributions to the <a target="_blank" href="/community/contributing">HEP Survival Guide</a>! 🚀</b>',
         backgroundColor: "#fafbfc",
         textColor: "#091E42",
         isCloseable: false,
