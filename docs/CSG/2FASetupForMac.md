@@ -1,5 +1,5 @@
 ---
-id: computer_selection
+id: 2fa-setup-for-mac 
 title: 2FA Setup for Mac
 sidebar_position: 3
 ---
